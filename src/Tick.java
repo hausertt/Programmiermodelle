@@ -65,14 +65,4 @@ public class Tick {
     public long getPrice() {
         return price;
     }
-
-
-    public static void main(String args[]){
-        String line="A1EXY0.ETR,I,08-11-2021,09:14:13.000,,,,,,,,,,,,,,,,,,6538.250000,,09:14:13.890,,,,,,,";
-        Tick tick=toTick (line);
-        System.out.println(tick);
-        line ="A1EXZG.ETR,I,08-11-2021,09:20:14.000,,,,,,,,,,,,,,,,,,1016.110000,,09:20:14.470,,,,,,,";
-        tick=toTick (line);
-        System.out.println(tick);
-    }
 }
