@@ -23,7 +23,6 @@ public class UnmodifiableList_Versuche {
         arrayList.add("23");
         System.out.println(unmodifiableArrayList);  // [Test, eins, dreiundzwanzig, 23]
 
-
         try{
             unmodifiableList.add(2);
         }catch(UnsupportedOperationException e) {

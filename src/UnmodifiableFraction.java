@@ -1,5 +1,5 @@
 public class UnmodifiableFraction implements Fraction{
-    Fraction fraction;
+    private final Fraction fraction;
 
 
     UnmodifiableFraction(Fraction fraction) {
