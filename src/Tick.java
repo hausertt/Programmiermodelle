@@ -22,7 +22,7 @@ public class Tick {
     }
 
     public String toString() {
-        return "Tick{time=" + time + ", symbol='" + symbol + "', price=" + price;
+        return "Tick{time=" + time + ", symbol='" + symbol + "', price=" + price +"}";
     }
 
     static Tick toTick(String line) {
@@ -44,7 +44,7 @@ public class Tick {
                 extractedDate = LocalDate.parse(mainMatcher.group(), formatter1).format(formatter2);
             } else if (column == 4) {
                 extractedPrice = Long.parseLong(mainMatcher.group().replaceAll("\\.", ""));
-            } else if (column == 5) {
+            } else if (column == 3) {
                 String datePart2 = mainMatcher.group();
                 extractedTime = LocalDateTime.parse(extractedDate + "T" + datePart2);
             }

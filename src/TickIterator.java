@@ -22,10 +22,10 @@ public class TickIterator implements Iterator<Tick> {
     }
 
 
-    private void open() {
+    public void open() {
     }
 
-    private void close(){
+    public void close(){
         scanner.close();
     }
 
@@ -39,6 +39,4 @@ public class TickIterator implements Iterator<Tick> {
         }
         iterator.close();
     }
-
-
 }
