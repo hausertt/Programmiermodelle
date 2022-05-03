@@ -21,7 +21,6 @@ public class TickIterator implements Iterator<Tick> {
         return Tick.toTick(scanner.nextLine());
     }
 
-
     public void open() {
     }
 
