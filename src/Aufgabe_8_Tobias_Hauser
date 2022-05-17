@@ -1,0 +1,36 @@
+choco install lein
+lein repl
+
+Aufgabe 1:
+
+a)
+(require '[clojure.string])
+(defn upper-case? [x] (if (= x (clojure.string/upper-case x)) true false))
+
+b)
+(defn dividers [x] (filter (comp zero? (partial rem x)) (range 1 x)))
+
+c)
+
+
+d)
+(defn prime? [x] (if (= '(1) (dividers x)) true false))
+
+e)
+(defn prime-twin? [x] (if (and (= '(1) (dividers x)) (= '(1) (dividers (+ x 2)))) true false))
+
+f)
+
+
+Aufgabe 2:
+
+a)
+(defn ticker-symbol [x] (re-find (re-pattern "[^,]+") x))
+
+b)
+
+
+c)
+(defn lines [x] (let [file (java.nio.file.Paths/get (new URI("C:\Users\hato0\IdeaProjects\Programmiermodelle\src\test_ticks_no_header.csv")
+
+d)
