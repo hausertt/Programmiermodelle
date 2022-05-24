@@ -49,3 +49,5 @@ d)
   )
 
 (count-symbols "file:/C:/Users/hato0/IdeaProjects/Programmiermodelle/src/test_ticks_no_header.csv")
+
+hallo
