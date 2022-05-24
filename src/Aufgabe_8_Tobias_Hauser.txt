@@ -5,22 +5,22 @@ Aufgabe 1:
 
 a)
 (require '[clojure.string])
-(defn upper-case? [x] (if (= x (clojure.string/upper-case x)) true false))
+(defn upper-case? [x] (= x (clojure.string/upper-case x)))
 
 b)
 (defn dividers [x] (filter (comp zero? (partial rem x)) (range 1 x)))
 
 c)
-
+(defn square? [x] (false? (empty? (filter #(if (= x (* % %)) true false) (dividers x)))))
 
 d)
 (defn prime? [x] (if (= '(1) (dividers x)) true false))
 
 e)
-(defn prime-twin? [x] (if (and (= '(1) (dividers x)) (= '(1) (dividers (+ x 2)))) true false))
+(defn prime-twin? [x] (and (prime? x) (prime (+ x 2))))
 
 f)
-
+(defn prime-twins [] (filter #(if (prime-twin? %) % false) (range)))
 
 Aufgabe 2:
 
@@ -28,9 +28,24 @@ a)
 (defn ticker-symbol [x] (re-find (re-pattern "[^,]+") x))
 
 b)
-
+(->> "Das sollte ein Beispiel sein wenn das funktioniert"
+     (.splitAsStream #"\s+")
+     .iterator
+     iterator-seq)
 
 c)
-(defn lines [x] (let [file (java.nio.file.Paths/get (new URI("C:\Users\hato0\IdeaProjects\Programmiermodelle\src\test_ticks_no_header.csv")
+(defn lines [x]
+    (-> (java.net.URI. x)
+    (java.nio.file.Path/of)
+    (java.nio.file.Files/lines)
+    .iterator
+    iterator-seq))
+
+(ticker-symbol (first (lines "file:/C:/Users/hato0/IdeaProjects/Programmiermodelle/src/test_ticks_no_header.csv")))
 
 d)
+(defn count-symbols [x]
+  {:symbol (count (lines x)) :distinct-symbol (count(distinct (map #(ticker-symbol %) (lines x))))}
+  )
+
+(count-symbols "file:/C:/Users/hato0/IdeaProjects/Programmiermodelle/src/test_ticks_no_header.csv")
