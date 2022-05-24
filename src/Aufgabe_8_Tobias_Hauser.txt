@@ -17,7 +17,7 @@ d)
 (defn prime? [x] (if (= '(1) (dividers x)) true false))
 
 e)
-(defn prime-twin? [x] (and (prime? x) (prime (+ x 2))))
+(defn prime-twin? [x] (and (prime? x) (prime? (+ x 2))))
 
 f)
 (defn prime-twins [] (filter #(if (prime-twin? %) % false) (range)))
@@ -49,5 +49,3 @@ d)
   )
 
 (count-symbols "file:/C:/Users/hato0/IdeaProjects/Programmiermodelle/src/test_ticks_no_header.csv")
-
-hallo
