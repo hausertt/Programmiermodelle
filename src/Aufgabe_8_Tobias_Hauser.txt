@@ -25,7 +25,7 @@ f)
 Aufgabe 2:
 
 a)
-(defn ticker-symbol [x] (re-find (re-pattern "[^,]+") x))
+(defn ticker-symbol "Hier waere die Doku" [x] (re-find (re-pattern "[^,]+") x))
 
 b)
 (->> "Das sollte ein Beispiel sein wenn das funktioniert"
@@ -34,18 +34,12 @@ b)
      iterator-seq)
 
 c)
-(defn lines [x]
-    (-> (java.net.URI. x)
-    (java.nio.file.Path/of)
-    (java.nio.file.Files/lines)
-    .iterator
-    iterator-seq))
+(defn lines [x] (-> (java.net.URI. x)(java.nio.file.Path/of)(java.nio.file.Files/lines).iterator iterator-seq))
 
 (ticker-symbol (first (lines "file:/C:/Users/hato0/IdeaProjects/Programmiermodelle/src/test_ticks_no_header.csv")))
+(ticker-symbol (first (lines "file:/D:/test_ticks_no_header.csv")))
 
 d)
-(defn count-symbols [x]
-  {:symbol (count (lines x)) :distinct-symbol (count(distinct (map #(ticker-symbol %) (lines x))))}
-  )
+(defn count-symbols [x] {:symbol (count (lines x)) :distinct-symbol (count(distinct (map #(ticker-symbol %) (lines x))))})
 
 (count-symbols "file:/C:/Users/hato0/IdeaProjects/Programmiermodelle/src/test_ticks_no_header.csv")
